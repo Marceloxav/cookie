@@ -1,0 +1,19 @@
+<?php
+// Start the session
+session_start();
+
+// Function to check if visitor is returning or new
+function checkVisitor() {
+    // Check if the cookie is set
+    if(isset($_COOKIE['visited'])) {
+        echo "Welcome back!";
+    } else {
+        echo "Welcome, new visitor!";
+        // Set a cookie to mark the visitor
+        setcookie('visited', 'yes', time() + 3600 * 24 * 30); // Cookie lasts for 30 days
+    }
+}
+
+// Call the function to check visitor status
+checkVisitor();
+?>
